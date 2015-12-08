@@ -4,15 +4,30 @@ namespace PaymentSystemDemo.Source.Database
 {
     class PayrollDatabase
     {
-        public static Dictionary<string, Employee> EmployeeDict = new Dictionary<string, Employee>(); 
-        public static Employee GetEmployee(string empId)
+        public static Dictionary<int, Employee> EmployeeDict = new Dictionary<int, Employee>(); 
+        public static Employee GetEmployee(int empId)
         {
-            return EmployeeDict[empId];
+            Employee emp;
+            if (EmployeeDict.TryGetValue(empId, out emp))
+            {
+                return EmployeeDict[empId];    
+            }
+            return null;
         }
 
-        public static void SetEmployee(Employee emp)
+        public static void AddEmployee(Employee emp)
         {
             EmployeeDict[emp.EmpId] = emp;
+        }
+
+        public static void DeleteEmployee(int empId)
+        {
+            EmployeeDict.Remove(empId);
+        }
+
+        public static void Clear()
+        {
+            EmployeeDict.Clear();
         }
 
     }

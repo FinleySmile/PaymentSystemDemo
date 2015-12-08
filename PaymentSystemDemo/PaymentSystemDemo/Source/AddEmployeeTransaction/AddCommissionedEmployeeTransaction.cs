@@ -1,23 +1,26 @@
-﻿using System;
-using PaymentSystemDemo.Source.PaymentClassification;
+﻿using PaymentSystemDemo.Source.PaymentClassification;
 using PaymentSystemDemo.Source.PaymentSchedule;
 
 namespace PaymentSystemDemo.Source.AddEmployeeTransaction
 {
-    class AddCommissionedEmployeeTransaction : AddEmployeeTransaction 
+    class AddCommissionedEmployeeTransaction : AddEmployeeTransaction
     {
-        public AddCommissionedEmployeeTransaction(string empId, string address, string name) : base(empId, address, name)
+        private double _baseSalary;
+        private double _rate;
+        public AddCommissionedEmployeeTransaction(int empId, string address, string name,double baseSalary,double rate) : base(empId, address, name)
         {
+            _baseSalary = baseSalary;
+            _rate = rate;
         }
 
         public override PaymentClasscification GetClasscification()
         {
-            throw new NotImplementedException();
+           return  new CommissionedClassification();
         }
 
         public override PaymenetSchedule GetSchedule()
         {
-            throw new NotImplementedException();
+            return new BiweeklySchedule();
         }
     }
 }

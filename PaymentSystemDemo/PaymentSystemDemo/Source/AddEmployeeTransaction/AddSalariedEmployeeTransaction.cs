@@ -1,5 +1,4 @@
-﻿using System;
-using PaymentSystemDemo.Source.PaymentClassification;
+﻿using PaymentSystemDemo.Source.PaymentClassification;
 using PaymentSystemDemo.Source.PaymentSchedule;
 
 namespace PaymentSystemDemo.Source.AddEmployeeTransaction
@@ -11,7 +10,7 @@ namespace PaymentSystemDemo.Source.AddEmployeeTransaction
     {
         public int Salary { get; set; }
 
-        public AddSalariedEmployeeTransaction(string empId, string address, string name,int salary) : base(empId, address, name)
+        public AddSalariedEmployeeTransaction(int empId, string address, string name,int salary) : base(empId, address, name)
         {
             Salary = salary;
         }

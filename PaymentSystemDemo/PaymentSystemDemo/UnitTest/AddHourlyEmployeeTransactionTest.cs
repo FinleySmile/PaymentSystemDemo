@@ -9,24 +9,28 @@ using PaymentSystemDemo.Source.PaymentSchedule;
 namespace PaymentSystemDemo.UnitTest
 {
     [TestFixture]
-    class AddSalariedEmployeeTransactionTest
+    class AddHourlyEmployeeTransactionTest
     {
         [Test]
-        public void TestAddSalariedEmployeeTrasaction()
+        public void TestAddHourlyEmployeeTrasaction()
         {
-            int empId = 1101;
-            var salariedEmployeeTransaction = new AddSalariedEmployeeTransaction(empId,"Beijing","Jack",1000);
+            int empId = 1102;
+            var salariedEmployeeTransaction = new AddHourlyEmployeeTransaction(empId,"Beijing","Jack",10);
             salariedEmployeeTransaction.Execute();
 
             Employee emp = PayrollDatabase.GetEmployee(empId);
 
             Assert.AreEqual(empId,emp.EmpId);
 
-            SalariedClassification sc = emp.PaymentClasscification as SalariedClassification;
-            Assert.NotNull(sc);
+            HourlyClassification hc = emp.PaymentClasscification as HourlyClassification;
+            Assert.NotNull(hc);
 
-            MonthlySchedule ms = emp.PaymentSchedule as MonthlySchedule;
-            Assert.NotNull(ms);
+            //int salary = sc.GetSalary();
+            //Assert.AreEqual(salary,1000);
+
+
+            WeeklySchudule ws = emp.PaymentSchedule as WeeklySchudule;
+            Assert.NotNull(ws);
 
             HoldPaymentMethod pm = emp.PaymentMethod as HoldPaymentMethod;
             Assert.NotNull(pm);

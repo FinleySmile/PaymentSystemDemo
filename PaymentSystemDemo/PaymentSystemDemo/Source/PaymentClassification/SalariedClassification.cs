@@ -1,4 +1,6 @@
-﻿namespace PaymentSystemDemo.Source.PaymentClassification
+﻿using System;
+
+namespace PaymentSystemDemo.Source.PaymentClassification
 {
     public class SalariedClassification:PaymentClasscification
     {
@@ -11,7 +13,7 @@
 
         public override bool IsPayDay()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public override int GetSalary()

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PaymentSystemDemo.Source.PaymentSchedule
+﻿namespace PaymentSystemDemo.Source.PaymentSchedule
 {
-    class WeeklySchudule:PaymenetSchedule
+    /// <summary>
+    /// 按周支付薪水
+    /// </summary>
+    class WeeklySchudule : PaymenetSchedule
     {
     }
-
 }

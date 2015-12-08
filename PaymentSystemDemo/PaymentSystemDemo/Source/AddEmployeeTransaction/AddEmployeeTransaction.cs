@@ -1,5 +1,4 @@
-﻿using System;
-using PaymentSystemDemo.Source.Database;
+﻿using PaymentSystemDemo.Source.Database;
 using PaymentSystemDemo.Source.PaymentClassification;
 using PaymentSystemDemo.Source.PaymentMethod;
 using PaymentSystemDemo.Source.PaymentSchedule;
@@ -11,11 +10,11 @@ namespace PaymentSystemDemo.Source.AddEmployeeTransaction
     /// </summary>
     public  abstract class AddEmployeeTransaction:ITransaction
     {
-        public string EmpId { get; set; }
+        public int EmpId { get; set; }
         public string Address { get; set; }
         public string Name { get; set; }
 
-        public AddEmployeeTransaction(string empId, string address, string name)
+        protected AddEmployeeTransaction(int empId, string address, string name)
         {
             EmpId = empId;
             Address = address;
@@ -29,7 +28,7 @@ namespace PaymentSystemDemo.Source.AddEmployeeTransaction
         public void Execute()
         {
             Employee emp = new Employee(EmpId,Address,Name);
-            PayrollDatabase.SetEmployee(emp);
+            PayrollDatabase.AddEmployee(emp);
             PaymentClasscification pc = GetClasscification();
 
             //emp.SetPaymentMethod();

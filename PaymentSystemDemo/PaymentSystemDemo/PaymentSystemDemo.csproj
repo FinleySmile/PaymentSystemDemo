@@ -46,8 +46,11 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\AddEmployeeTransaction\AddCommissionedEmployeeTransaction.cs" />
     <Compile Include="Source\AddEmployeeTransaction\AddEmployeeTransaction.cs" />
+    <Compile Include="Source\AddEmployeeTransaction\AddHourlyEmployeeTransaction.cs" />
     <Compile Include="Source\AddEmployeeTransaction\AddSalariedEmployeeTransaction.cs" />
+    <Compile Include="Source\DeleteEmployeeTransaction.cs" />
     <Compile Include="Source\PaymentClassification\CommissionedClassification.cs" />
     <Compile Include="Source\Employee.cs" />
     <Compile Include="Source\PaymentClassification\HourlyClassification.cs" />
@@ -55,10 +58,21 @@
     <Compile Include="Source\PaymentMethod\BankCardPaymentMethod.cs" />
     <Compile Include="Source\PaymentMethod\HoldPaymentMethod.cs" />
     <Compile Include="Source\PaymentMethod\MailPaymentMethod.cs" />
+    <Compile Include="Source\PaymentSchedule\BiweeklySchedule.cs" />
     <Compile Include="Source\PaymentSchedule\PaymenetSchedule.cs" />
     <Compile Include="Source\PaymentClassification\PaymentClasscification.cs" />
     <Compile Include="Source\PaymentMethod\IPaymentMethod.cs" />
     <Compile Include="Source\Database\PayrollDatabase.cs" />
+    <Compile Include="Source\PaymentSchedule\WeeklySchudule.cs" />
+    <Compile Include="Source\TimeCard.cs" />
+    <Compile Include="Source\TimeCardTransaction.cs" />
+    <Compile Include="Source\SalesReceipt.cs" />
+    <Compile Include="Source\SalesReceiptTransaction.cs" />
+    <Compile Include="UnitTest\TimeCardTransactionTest.cs" />
+    <Compile Include="UnitTest\SalesReceiptTransactionTest.cs" />
+    <Compile Include="UnitTest\DeleteEmployeeTransactionTest.cs" />
+    <Compile Include="UnitTest\AddHourlyEmployeeTransactionTest.cs" />
+    <Compile Include="UnitTest\AddCommissionedEmployeeTransactionTest.cs" />
     <Compile Include="UnitTest\AddSalariedEmployeeTransactionTest.cs" />
     <Compile Include="Source\PaymentClassification\SalariedClassification.cs" />
     <Compile Include="Source\PaymentSchedule\MonthlySchedule.cs" />
