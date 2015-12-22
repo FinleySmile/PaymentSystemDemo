@@ -3,7 +3,7 @@
     /// <summary>
     /// 支付方式(出纳保存，银行卡，邮寄支票)
     /// </summary>
-    interface IPaymentMethod
+    public interface IPaymentMethod
     {
     }
 }

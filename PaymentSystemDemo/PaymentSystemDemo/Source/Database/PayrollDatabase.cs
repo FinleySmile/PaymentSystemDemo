@@ -4,7 +4,8 @@ namespace PaymentSystemDemo.Source.Database
 {
     class PayrollDatabase
     {
-        public static Dictionary<int, Employee> EmployeeDict = new Dictionary<int, Employee>(); 
+        public static Dictionary<int, Employee> EmployeeDict = new Dictionary<int, Employee>();
+        public static Dictionary<int, Employee> MemberDict = new Dictionary<int, Employee>(); 
         public static Employee GetEmployee(int empId)
         {
             Employee emp;
@@ -30,5 +31,24 @@ namespace PaymentSystemDemo.Source.Database
             EmployeeDict.Clear();
         }
 
+        public static Employee GetUnionMember(int memberId)
+        {
+            Employee emp;
+            if (MemberDict.TryGetValue(memberId, out emp))
+            {
+                return MemberDict[memberId];
+            }
+            return null;
+        }
+
+        public static void AddUniionMember(int memberId, Employee emp)
+        {
+            MemberDict.Add(memberId, emp);
+        }
+
+        public static void DeleteMember(int memberId)
+        {
+            MemberDict.Remove(memberId);
+        }
     }
 }

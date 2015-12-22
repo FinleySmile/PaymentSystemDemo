@@ -2,5 +2,6 @@
 {
     class MailPaymentMethod:IPaymentMethod
     {
+        public string Address;
     }
 }

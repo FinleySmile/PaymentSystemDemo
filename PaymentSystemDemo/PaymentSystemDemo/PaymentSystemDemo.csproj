@@ -68,6 +68,11 @@
     <Compile Include="Source\TimeCardTransaction.cs" />
     <Compile Include="Source\SalesReceipt.cs" />
     <Compile Include="Source\SalesReceiptTransaction.cs" />
+    <Compile Include="Source\IAffiliation.cs" />
+    <Compile Include="Source\ServiceCharge.cs" />
+    <Compile Include="Source\ServiceChargeTransaction.cs" />
+    <Compile Include="UnitTest\ChangeMethodTransactionTest.cs" />
+    <Compile Include="UnitTest\ServiceChargeTransactionTest.cs" />
     <Compile Include="UnitTest\TimeCardTransactionTest.cs" />
     <Compile Include="UnitTest\SalesReceiptTransactionTest.cs" />
     <Compile Include="UnitTest\DeleteEmployeeTransactionTest.cs" />
@@ -76,11 +81,14 @@
     <Compile Include="UnitTest\AddSalariedEmployeeTransactionTest.cs" />
     <Compile Include="Source\PaymentClassification\SalariedClassification.cs" />
     <Compile Include="Source\PaymentSchedule\MonthlySchedule.cs" />
+    <Compile Include="Source\UnionAffiliation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Source\ChangeEmpAttribute\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
