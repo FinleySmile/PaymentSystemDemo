@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using PaymentSystemDemo.Source;
 using PaymentSystemDemo.Source.AddEmployeeTransaction;
+using PaymentSystemDemo.Source.ChangeEmpAttribute;
 using PaymentSystemDemo.Source.Database;
 using PaymentSystemDemo.Source.PaymentMethod;
 using PaymentSystemDemo.UnitTest;
@@ -25,7 +26,7 @@ namespace PaymentSystemDemo.UnitTest
             var changeNameTransaction = new ChangeNameTransaction(empId, newName);
             changeNameTransaction.Execute();
             Employee emp = PayrollDatabase.GetEmployee(empId);
-            Assert.AreEqual(newName,emp.Name );
+            Assert.AreEqual(newName, emp.Name);
         }
 
         [Test]
@@ -43,93 +44,61 @@ namespace PaymentSystemDemo.UnitTest
         }
 
         [Test]
-        public void TestChangeMethodTransaction()
+        public void TestChangeDirectMehtodTransaction()
         {
             int empId = 2;
-            
+
             var transaction = new AddHourlyEmployeeTransaction(empId, "Beijing", "Jack", 10.2);
             transaction.Execute();
 
             string account = "123456";
             BankType bankType = BankType.ICBC;
-            var paymentMethod = new BankCardPaymentMethod(){Account = account,BankType = bankType};
-            var changeMethodTransaction = new ChangeMethodTransaction(empId,paymentMethod);
-            changeMethodTransaction.Execute();
+            var changeDirectTransaction = new ChangeDirectTransaction(empId, account, bankType);
+            changeDirectTransaction.Execute();
 
             Employee emp = PayrollDatabase.GetEmployee(empId);
             var bankCardPaymentMethod = emp.PaymentMethod as BankCardPaymentMethod;
             Assert.IsNotNull(bankCardPaymentMethod);
-            Assert.AreEqual(bankCardPaymentMethod.BankType,bankType);
+            Assert.AreEqual(bankCardPaymentMethod.BankType, bankType);
             Assert.AreEqual(bankCardPaymentMethod.Account, account);
         }
-    }
 
-  
-    public abstract class ChangeEmployeeTransaction : ITransaction
-    {
-        private int _empId;
-        protected ChangeEmployeeTransaction(int empId)
+        [Test]
+        public void TestChangeMailMehtodTransaction()
         {
-            _empId = empId;
-        }
-        public abstract void Change(Employee emp);
-        public void Execute()
-        {
-            Employee emp = PayrollDatabase.GetEmployee(_empId);
-            if (emp != null)
-            {
-                Change(emp);
-            }
-        }
-    }
+            int empId = 2;
 
-    public class ChangeNameTransaction : ChangeEmployeeTransaction
-    {
-        private string _name;
-        public ChangeNameTransaction(int empId, string name):base(empId)
-        {
-            _name = name;
-        }
-        public override void Change(Employee emp)
-        {
-            emp.Name = _name;
+            var transaction = new AddHourlyEmployeeTransaction(empId, "Beijing", "Jack", 10.2);
+            transaction.Execute();
 
-        }
-    }
+            string address = "Beijing";
+            var changeMailTransaction = new ChangeMailTransaction(empId, address);
+            changeMailTransaction.Execute();
 
-    internal class ChangeAddressTransaction : ChangeEmployeeTransaction
-    {
-        private string _address;
-        public ChangeAddressTransaction(int empId, string newAddress)
-            : base(empId)
-        {
-            _address = newAddress;
+            Employee emp = PayrollDatabase.GetEmployee(empId);
+            var mailPaymentMethod = emp.PaymentMethod as MailPaymentMethod;
+            Assert.IsNotNull(mailPaymentMethod);
+            Assert.AreEqual(mailPaymentMethod.Address, address);
         }
 
-        public override void Change(Employee emp)
+
+        [Test]
+        public void TestChangeHoldMehtodTransaction()
         {
-            emp.Address = _address;
+            int empId = 2;
+
+            var transaction = new AddHourlyEmployeeTransaction(empId, "Beijing", "Jack", 10.2);
+            transaction.Execute();
+
+            string address = "Beijing";
+            var changeHoldTransaction = new ChangeHoldTransaction(empId, address);
+            changeHoldTransaction.Execute();
+
+            Employee emp = PayrollDatabase.GetEmployee(empId);
+            var holdPaymentMethod = emp.PaymentMethod as HoldPaymentMethod;
+            Assert.IsNotNull(holdPaymentMethod);
+
+
         }
     }
-
-
-    public class ChangeMethodTransaction : ChangeEmployeeTransaction
-    {
-        private IPaymentMethod _paymentMethod;
-        public ChangeMethodTransaction(int empId,IPaymentMethod paymentMethod) : base(empId)
-        {
-            _paymentMethod = paymentMethod;
-        }
-
-        public override void Change(Employee emp)
-        {
-            emp.PaymentMethod = _paymentMethod;
-        }
-    }
-
-
-
-
-
-
 }

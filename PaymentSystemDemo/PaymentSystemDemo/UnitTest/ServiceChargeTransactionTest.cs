@@ -16,16 +16,16 @@ namespace PaymentSystemDemo.UnitTest
         [Test]
         public void TestAddServiceCharge()
         {
-            int empId = 2;
-            int memberId = 20;
+            int empId = 3;
+            int memberId = 30;
 
             var transaction = new AddHourlyEmployeeTransaction(empId, "Beijing", "Jack", 10.2);
             transaction.Execute();
 
             UnionAffiliation af = new UnionAffiliation(memberId, 10);
             Employee emp = PayrollDatabase.GetEmployee(empId);
-            emp.SetAffiliation(af);
-            PayrollDatabase.AddUniionMember(memberId, emp);
+            emp.Affiliation = af;
+            PayrollDatabase.AddUnionMember(memberId, emp);
             ServiceChargeTransaction sct = new ServiceChargeTransaction(memberId, "20150101", 12.95);
             sct.Execute();
             ServiceCharge sc = af.GetServiceCharge("20150101");

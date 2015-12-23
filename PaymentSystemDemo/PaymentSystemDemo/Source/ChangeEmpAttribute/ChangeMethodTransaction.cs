@@ -1,19 +1,17 @@
-using PaymentSystemDemo.Source;
 using PaymentSystemDemo.Source.PaymentMethod;
 
-namespace PaymentSystemDemo.UnitTest
+namespace PaymentSystemDemo.Source.ChangeEmpAttribute
 {
-    public class ChangeMethodTransaction : ChangeEmployeeTransaction
+    public abstract class ChangeMethodTransaction : ChangeEmployeeTransaction
     {
-        private IPaymentMethod _paymentMethod;
-        public ChangeMethodTransaction(int empId,IPaymentMethod paymentMethod) : base(empId)
+        public ChangeMethodTransaction(int empId) : base(empId)
         {
-            _paymentMethod = paymentMethod;
         }
 
+        public abstract IPaymentMethod GetMethod();
         public override void Change(Employee emp)
         {
-            emp.PaymentMethod = _paymentMethod;
+            emp.PaymentMethod = GetMethod();
         }
     }
 }

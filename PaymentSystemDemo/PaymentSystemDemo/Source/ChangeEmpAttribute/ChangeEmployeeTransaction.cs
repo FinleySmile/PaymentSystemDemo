@@ -1,7 +1,6 @@
-using PaymentSystemDemo.Source;
 using PaymentSystemDemo.Source.Database;
 
-namespace PaymentSystemDemo.UnitTest
+namespace PaymentSystemDemo.Source.ChangeEmpAttribute
 {
     public abstract class ChangeEmployeeTransaction : ITransaction
     {

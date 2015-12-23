@@ -50,7 +50,15 @@
     <Compile Include="Source\AddEmployeeTransaction\AddEmployeeTransaction.cs" />
     <Compile Include="Source\AddEmployeeTransaction\AddHourlyEmployeeTransaction.cs" />
     <Compile Include="Source\AddEmployeeTransaction\AddSalariedEmployeeTransaction.cs" />
+    <Compile Include="Source\ChangeEmpAttribute\ChangeClassificationTransaction.cs" />
+    <Compile Include="Source\ChangeEmpAttribute\ChangeDirectTransaction.cs" />
+    <Compile Include="Source\ChangeEmpAttribute\ChangeHoldTransaction.cs" />
+    <Compile Include="Source\ChangeEmpAttribute\ChangeMailTransaction.cs" />
+    <Compile Include="Source\ChangeEmpAttribute\ChangeMemberTransaction.cs" />
+    <Compile Include="Source\ChangeEmpAttribute\ChangeNoAffiliation.cs" />
+    <Compile Include="Source\ChangeEmpAttribute\ChangeUnionAffiliation.cs" />
     <Compile Include="Source\DeleteEmployeeTransaction.cs" />
+    <Compile Include="Source\NoAffiliation.cs" />
     <Compile Include="Source\PaymentClassification\CommissionedClassification.cs" />
     <Compile Include="Source\Employee.cs" />
     <Compile Include="Source\PaymentClassification\HourlyClassification.cs" />
@@ -71,7 +79,13 @@
     <Compile Include="Source\IAffiliation.cs" />
     <Compile Include="Source\ServiceCharge.cs" />
     <Compile Include="Source\ServiceChargeTransaction.cs" />
+    <Compile Include="Source\ChangeEmpAttribute\ChangeAddressTransaction.cs" />
+    <Compile Include="Source\ChangeEmpAttribute\ChangeEmployeeTransaction.cs" />
+    <Compile Include="Source\ChangeEmpAttribute\ChangeMethodTransaction.cs" />
+    <Compile Include="UnitTest\ChangeMemberTransactionTest.cs" />
     <Compile Include="UnitTest\ChangeMethodTransactionTest.cs" />
+    <Compile Include="Source\ChangeEmpAttribute\ChangeNameTransaction.cs" />
+    <Compile Include="UnitTest\ChangeClassificationTransactionTest.cs" />
     <Compile Include="UnitTest\ServiceChargeTransactionTest.cs" />
     <Compile Include="UnitTest\TimeCardTransactionTest.cs" />
     <Compile Include="UnitTest\SalesReceiptTransactionTest.cs" />
@@ -86,9 +100,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\ChangeEmpAttribute\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

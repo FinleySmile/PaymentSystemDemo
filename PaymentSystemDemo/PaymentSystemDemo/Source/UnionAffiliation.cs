@@ -4,13 +4,15 @@ namespace PaymentSystemDemo.Source
 {
     public class UnionAffiliation : IAffiliation
     {
-        private int _memberId;
-        private double _rate;
+        public double Dues { get; set; }
+        public int MemberId { get; set; }
         private List<ServiceCharge> _serviceCharges;
-        public UnionAffiliation(int memberId, double rate)
+
+        
+        public UnionAffiliation(int memberId, double dues)
         {
-            _memberId = memberId;
-            _rate = rate;
+            MemberId = memberId;
+            Dues = dues;
             _serviceCharges = new List<ServiceCharge>();
         }
 

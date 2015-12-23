@@ -15,7 +15,7 @@ namespace PaymentSystemDemo.Source.AddEmployeeTransaction
 
         public override PaymentClasscification GetClasscification()
         {
-           return  new CommissionedClassification();
+           return  new CommissionedClassification(_baseSalary,_rate);
         }
 
         public override PaymenetSchedule GetSchedule()

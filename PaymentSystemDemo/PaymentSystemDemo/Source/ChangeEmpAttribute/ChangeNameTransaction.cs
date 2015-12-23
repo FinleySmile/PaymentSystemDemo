@@ -10,7 +10,6 @@ namespace PaymentSystemDemo.Source.ChangeEmpAttribute
         public override void Change(Employee emp)
         {
             emp.Name = _name;
-
         }
     }
 }

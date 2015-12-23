@@ -6,6 +6,6 @@ namespace PaymentSystemDemo.Source.PaymentClassification
     public abstract class PaymentClasscification
     {
         public abstract  bool IsPayDay();
-        public abstract int GetSalary();
+        public abstract double GetSalary();
     }
 }

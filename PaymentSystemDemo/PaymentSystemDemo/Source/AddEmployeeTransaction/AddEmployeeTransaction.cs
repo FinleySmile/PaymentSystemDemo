@@ -8,7 +8,7 @@ namespace PaymentSystemDemo.Source.AddEmployeeTransaction
     /// <summary>
     /// 添加Employee基类
     /// </summary>
-    public  abstract class AddEmployeeTransaction:ITransaction
+    public abstract class AddEmployeeTransaction : ITransaction
     {
         public int EmpId { get; set; }
         public string Address { get; set; }
@@ -27,7 +27,7 @@ namespace PaymentSystemDemo.Source.AddEmployeeTransaction
 
         public void Execute()
         {
-            Employee emp = new Employee(EmpId,Address,Name);
+            Employee emp = new Employee(EmpId, Address, Name);
             PayrollDatabase.AddEmployee(emp);
             PaymentClasscification pc = GetClasscification();
 

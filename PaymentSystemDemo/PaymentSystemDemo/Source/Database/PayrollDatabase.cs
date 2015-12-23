@@ -41,7 +41,7 @@ namespace PaymentSystemDemo.Source.Database
             return null;
         }
 
-        public static void AddUniionMember(int memberId, Employee emp)
+        public static void AddUnionMember(int memberId, Employee emp)
         {
             MemberDict.Add(memberId, emp);
         }

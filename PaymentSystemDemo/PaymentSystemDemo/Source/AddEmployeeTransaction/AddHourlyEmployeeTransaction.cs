@@ -5,17 +5,17 @@ namespace PaymentSystemDemo.Source.AddEmployeeTransaction
 {
     class AddHourlyEmployeeTransaction : AddEmployeeTransaction
     {
-        public double Rate { get; set; }
+        private double _rate; 
 
         public AddHourlyEmployeeTransaction(int empId, string address, string name, double rate)
             : base(empId, address, name)
         {
-            Rate = rate;
+            _rate = rate;
         }
 
         public override PaymentClasscification GetClasscification()
         {
-            return new HourlyClassification();
+            return new HourlyClassification(_rate);
         }
 
         public override PaymenetSchedule GetSchedule()

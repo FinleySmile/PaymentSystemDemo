@@ -4,9 +4,9 @@ namespace PaymentSystemDemo.Source.PaymentClassification
 {
     public class SalariedClassification:PaymentClasscification
     {
-        public int Salary { get; set; }
+        public double Salary { get;private  set; }
 
-        public SalariedClassification(int salary=0)
+        public SalariedClassification(double salary=0)
         {
             Salary = salary;
         }
@@ -16,10 +16,9 @@ namespace PaymentSystemDemo.Source.PaymentClassification
             throw new NotImplementedException();
         }
 
-        public override int GetSalary()
+        public override double GetSalary()
         {
             return Salary;
         }
-
     }
 }

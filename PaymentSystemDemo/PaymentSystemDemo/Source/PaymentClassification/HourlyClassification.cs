@@ -8,13 +8,22 @@ namespace PaymentSystemDemo.Source.PaymentClassification
     /// </summary>
     class HourlyClassification:PaymentClasscification
     {
-        Dictionary<string,TimeCard> _timeCards= new Dictionary<string, TimeCard>();  
+        private readonly Dictionary<string,TimeCard> _timeCards;
+
+        public double Rate { get; set; }
+
+        public HourlyClassification(double rate)
+        {
+            Rate = rate;
+            _timeCards = new Dictionary<string, TimeCard>();
+        }
+
         public override bool IsPayDay()
         {
             throw new NotImplementedException();
         }
 
-        public override int GetSalary()
+        public override double GetSalary()
         {
             throw new NotImplementedException();
         }

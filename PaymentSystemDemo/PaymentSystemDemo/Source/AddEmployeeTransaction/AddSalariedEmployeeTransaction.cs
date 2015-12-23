@@ -8,9 +8,9 @@ namespace PaymentSystemDemo.Source.AddEmployeeTransaction
     /// </summary>
     class AddSalariedEmployeeTransaction:AddEmployeeTransaction
     {
-        public int Salary { get; set; }
+        public double Salary { get; set; }
 
-        public AddSalariedEmployeeTransaction(int empId, string address, string name,int salary) : base(empId, address, name)
+        public AddSalariedEmployeeTransaction(int empId, string address, string name,double salary) : base(empId, address, name)
         {
             Salary = salary;
         }

@@ -22,15 +22,13 @@ namespace PaymentSystemDemo.Source
             Employee emp = PayrollDatabase.GetUnionMember(_memberId);
             if (emp != null)
             {
-                List<IAffiliation> affiliations = emp.Affiliations;
-                foreach (var a in affiliations)
+                IAffiliation affiliation = emp.Affiliation;
+                UnionAffiliation ua = affiliation as UnionAffiliation;
+                if (ua != null)
                 {
-                    UnionAffiliation ua = a as UnionAffiliation;
-                    if (ua != null)
-                    {
-                        ua.AddServiceCharge(sc);
-                    }
+                    ua.AddServiceCharge(sc);
                 }
+
             }
         }
     }

@@ -1,6 +1,6 @@
-using PaymentSystemDemo.Source;
+using PaymentSystemDemo.UnitTest;
 
-namespace PaymentSystemDemo.UnitTest
+namespace PaymentSystemDemo.Source.ChangeEmpAttribute
 {
     internal class ChangeAddressTransaction : ChangeEmployeeTransaction
     {
